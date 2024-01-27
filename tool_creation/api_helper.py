@@ -22,7 +22,7 @@ def get_price_change(days=2, ticker="btc"):
 
     #print(f"end: {end_date}\nstart: {start_date}")
     # Fetch historical price data using yfinance
-    data = yf.download(f"{ticker}-USd", start=start_date, end=end_date)
+    data = yf.download(f"{ticker}-USd", start=start_date, end=end_date,progress=False)
 
     #print(data.Close)
     # Extract the closing price 'days' days ago

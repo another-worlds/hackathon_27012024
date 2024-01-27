@@ -4,6 +4,8 @@ from langchain.chains import LLMChain
 from langchain.prompts import PromptTemplate
 from langchain.tools import tool, BaseTool, StructuredTool
 
+from tool_helper import get_price_change_tool
+
 from dotenv import load_dotenv
 
 
@@ -11,10 +13,10 @@ load_dotenv()
 
 def langchain_agent():
     llm = OpenAI(temperature=0.7)
-    tools = load_tools(["wikipedia", "llm-math"], llm=llm)
+    
     
     agent = initialize_agent(
-        tools, llm, agent=AgentType.ZERO_SHOT_REACT_DESCRIPTION, verbose=True
+        get_price_change_tool, llm, agent=AgentType.ZERO_SHOT_REACT_DESCRIPTION, verbose=True
     )
     
     result = agent.run(

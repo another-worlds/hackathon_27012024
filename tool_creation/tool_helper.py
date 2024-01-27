@@ -39,8 +39,8 @@ my_tools = [
 ]
 
 class PriceChangeInput(BaseModel):
-    days: int = Field(description="How many days ago to look"),
-    ticker: str=Field(description="Which symbol to look up")
+    days: int = Field(description="How many days ago to look")
+    ticker: str=Field(description="Which symbol to look up",)
     
 get_price_change_tool = StructuredTool.from_function(
     func=get_price_change,
@@ -50,4 +50,4 @@ get_price_change_tool = StructuredTool.from_function(
 )
 
 if __name__ == "__main__":
-    print(get_price_change_tool.args)
+    print(get_price_change_tool.run({"days" : 1, "ticker": "BTC"}))
