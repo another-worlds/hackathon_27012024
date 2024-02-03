@@ -3,7 +3,10 @@ from langchain.agents import AgentType, initialize_agent, load_tools
 from langchain.chains import LLMChain
 from langchain.prompts import PromptTemplate
 from langchain.tools import tool, BaseTool, StructuredTool
+from langchain.vectorstores.faiss import FAISS
+from langchain.embeddings.openai import OpenAIEmbeddings
 
+from db_helper import get_df
 from tool_helper import get_price_change_tool
 
 from dotenv import load_dotenv
@@ -11,16 +14,5 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-def langchain_agent():
-    llm = OpenAI(temperature=0.7)
-    
-    
-    agent = initialize_agent(
-        get_price_change_tool, llm, agent=AgentType.ZERO_SHOT_REACT_DESCRIPTION, verbose=True
-    )
-    
-    result = agent.run(
-        "What is the average height of a dog? Multiply it by average dog age."
-    )
-    
-    return result
+# populate database with crypto ticker entries
+v
