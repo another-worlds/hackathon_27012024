@@ -1,12 +1,11 @@
-from langchain_openai import OpenAI, OpenAIEmbeddings
+from langchain_openai import OpenAI
 from langchain.agents import AgentType, initialize_agent, load_tools
 from langchain.chains import LLMChain
 from langchain.prompts import PromptTemplate
 from langchain.tools import tool, BaseTool, StructuredTool
-from langchain.vectorstores.faiss import FAISS
-from langchain.embeddings.openai import OpenAIEmbeddings
+from langchain_community.vectorstores.pinecone import Pinecone
 
-from db_helper import get_df
+from db_helper import get_df, init_pinecone
 from tool_helper import get_price_change_tool
 
 from dotenv import load_dotenv
@@ -14,5 +13,9 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-# populate database with crypto ticker entries
-v
+# prepare data
+df = get_df()
+
+# init index
+index = init_pinecone()
+

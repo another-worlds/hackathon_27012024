@@ -10,7 +10,7 @@ Follow up of a langchain course intro course + crypto price data RAG project
 2) LLM pipeline setup and tool creation overview
  a. Test custom tool: get_price_change(tf, ticker) -> delta 
   I  ) Write custom tool                                DONE
-  II ) Set up df embedding (pinecone)                   TBD
+  II ) Set up df and  embedding (pinecone)              TBD
   III) Set up retriever (bonus: history aware)          TBD
   IV ) Set up prompt templates(ticker->name, tf->delta) TBD
   V  ) Set up chain                                     TBD
